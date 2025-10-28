@@ -1,7 +1,13 @@
+import { isDev } from "./utils.js";
+
 type LogPayload = {
   app: string;
   message: any[];
   caller: string;
+};
+
+type NoOpLogger = {
+  log: (...args: any[]) => void;
 };
 
 export class RemoteLoggerClient {
@@ -77,6 +83,12 @@ export class RemoteLoggerClient {
 export function createLogger(
   app: string = "default",
   port: number = 4455
-): RemoteLoggerClient {
+): RemoteLoggerClient | NoOpLogger {
+  if (!isDev()) {
+    return {
+      log: (...args: any[]) => {},
+    } as NoOpLogger;
+  }
+
   return new RemoteLoggerClient(app, port);
 }
