@@ -16,11 +16,11 @@ A lightweight WebSocket client for sending logs to a remote logger server. Perfe
 ## Installation
 
 ```bash
-npm install remote-logger-client
+npm install @khalidsheet/remote-logger-client
 # or
-pnpm add remote-logger-client
+pnpm add @khalidsheet/remote-logger-client
 # or
-yarn add remote-logger-client
+yarn add @khalidsheet/remote-logger-client
 ```
 
 ## Prerequisites
@@ -39,7 +39,7 @@ The server will start on port `4455` by default.
 ### Basic Usage
 
 ```javascript
-import { createLogger } from "remote-logger-client";
+import { createLogger } from "@khalidsheet/remote-logger-client";
 
 const logger = createLogger("MyApp");
 
@@ -51,7 +51,7 @@ logger.log("API response:", response);
 ### Using the Class Directly
 
 ```javascript
-import { RemoteLoggerClient } from "remote-logger-client";
+import { RemoteLoggerClient } from "@khalidsheet/remote-logger-client";
 
 const logger = new RemoteLoggerClient("MyApp", 4455);
 
@@ -199,7 +199,7 @@ Builds the project using `tsdown` and outputs to the `dist/` directory in both C
 ### Project Structure
 
 ```
-remote-logger-client/
+@khalidsheet/remote-logger-client/
 ├── src/
 │   └── main.ts          # Client implementation
 ├── dist/                # Built files
@@ -221,7 +221,7 @@ remote-logger-client/
 2. Check the browser console for connection messages:
 
    ```
-   [remote-logger-client] [MyApp] Connected.
+   [@khalidsheet/remote-logger-client] [MyApp] Connected.
    ```
 
 3. Verify the port matches between client and server (default: 4455)
